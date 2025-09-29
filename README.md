@@ -17,8 +17,8 @@ This project extracts data from PDFs and saves it into Excel files.
 Open Terminal (or Command Prompt on Windows) and run:
 
 ```bash```
-git clone git@github.com:TylorOP/pdf_to_excel_extractor.git
-cd pdf_to_excel_extractor
+git clone git@github.com:TylorOP/pdf_to_excel_extractor.git  
+cd pdf_to_excel_extractor  
 
 
 ### 2. Create a virtual environment  (Optional but recommended)
@@ -26,8 +26,8 @@ cd pdf_to_excel_extractor
 python3 -m venv venv
 
 
-source venv/bin/activate       # macOS/Linux
-venv\Scripts\activate       # On Windows
+source venv/bin/activate       # macOS/Linux  
+venv\Scripts\activate       # On Windows  
 
 ### 3. Install dependencies
 All required Python packages can be installed with:
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 `pytesseract` needs the Tesseract OCR program installed on your machine. Follow your OS below:
 
 #### **macOS**
-1. Make sure [Homebrew](https://brew.sh/) is installed.  
+1. Make sure [Homebrew](https://brew.sh/) is installed.    
 2. Open Terminal and run:
 
 brew install tesseract
