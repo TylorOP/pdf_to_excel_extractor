@@ -94,7 +94,9 @@ def main():
         print("⚠️ No PDF files found in input_pdfs folder.")
         return
 
-    for pdf_file in pdf_files:
+    total_files = len(pdf_files)
+    for idx, pdf_file in enumerate(pdf_files, start=1):
+        print(f"🔄 Processing file {idx}/{total_files}: {pdf_file}")
         process_pdf(os.path.join(INPUT_FOLDER, pdf_file))
 
     print(f"🎉 All PDFs processed. Excel files in '{OUTPUT_FOLDER}'.")
