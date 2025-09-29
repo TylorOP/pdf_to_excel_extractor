@@ -16,13 +16,13 @@ This project extracts data from PDFs and saves it into Excel files.
 ### 1. Clone the repository
 Open Terminal (or Command Prompt on Windows) and run:
 
-```bash```
+```bash```  
 git clone git@github.com:TylorOP/pdf_to_excel_extractor.git  
 cd pdf_to_excel_extractor  
 
 
 ### 2. Create a virtual environment  (Optional but recommended)
-```bash```
+```bash```  
 python3 -m venv venv
 
 
@@ -32,18 +32,18 @@ venv\Scripts\activate       # On Windows
 ### 3. Install dependencies
 All required Python packages can be installed with:
 
-```bash```
+```bash```  
 pip install -r requirements.txt
 
 ### 4.Install Tesseract OCR engine:
 
 `pytesseract` needs the Tesseract OCR program installed on your machine. Follow your OS below:
 
-#### **macOS**
+#### **macOS**  
 1. Make sure [Homebrew](https://brew.sh/) is installed.    
 2. Open Terminal and run:
 
-brew install tesseract
+brew install tesseract  
 
 Test installation:
 Next run this :
@@ -51,25 +51,25 @@ Next run this :
 tesseract --version
 
 
-You should see a version number like tesseract 5.x.x.
+You should see a version number like tesseract 5.x.x.  
 
-Windows: Download from Tesseract OCR and add to PATH
+Windows: Download from Tesseract OCR and add to PATH  
 
-Download the Tesseract installer from Tesseract at UB Mannheim 
-Link--> " https://github.com/UB-Mannheim/tesseract/wiki "
+Download the Tesseract installer from Tesseract at UB Mannheim   
+Link--> " https://github.com/UB-Mannheim/tesseract/wiki "  
 
-Click the latest exe file under “Windows Installer” (for e.g. tesseract-ocr-w64-setup-5.5.0.20241111.exe ). 
+Click the latest exe file under “Windows Installer” (for e.g. tesseract-ocr-w64-setup-5.5.0.20241111.exe ).   
 
-Run the installer and follow the instructions. Keep the default folder (usually C:\Program Files\Tesseract-OCR).
+Run the installer and follow the instructions. Keep the default folder (usually C:\Program Files\Tesseract-OCR).  
 
-Add Tesseract to your system PATH:
-Press Win + R, type sysdm.cpl → Enter
-Go to Advanced → Environment Variables → Path → Edit → New
-Add C:\Program Files\Tesseract-OCR → Click OK
+Add Tesseract to your system PATH:  
+Press Win + R, type sysdm.cpl → Enter  
+Go to Advanced → Environment Variables → Path → Edit → New  
+Add C:\Program Files\Tesseract-OCR → Click OK  
 
-Test installation in Command Prompt:
-tesseract --version
-You should see a version number printed.
+Test installation in Command Prompt:  
+tesseract --version  
+You should see a version number printed.  
 
 ### 5. Place your PDFs in the input_pdfs/ folder.
 
