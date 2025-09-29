@@ -1,0 +1,51 @@
+❌ Failures Related to PDF or File Handling
+
+1. No PDF Files in Input Folder
+✅ Already handled (⚠️ No PDF files found...), so safe
+2. Corrupted or Password-Protected PDF
+Issue: pdfplumber will raise an exception if the PDF is corrupted or encrypted.
+❗Fix: Add try-except around pdfplumber.open(file_path)
+❌ Failures in PDF Content
+
+3. Empty Pages
+If page.extract_text() returns None, col1, col2, and col3 will be marked as “NOT FOUND”.
+✅ This is handled, but if all pages are blank, the Excel will be mostly empty.
+4. Unexpected Text Formats
+If col1 or col2 patterns change even slightly (e.g., "B-1 of 10" → "Bundle 1/10"), regex won't match.
+❗Fix: Use more flexible patterns or fallback strategies.
+❌ OCR & Image Issues (col3)
+
+5. Tesseract Not Installed or Misconfigured
+If the Tesseract path is wrong, it’ll raise a runtime error.
+❗Fix: Add a check at startup to confirm pytesseract.pytesseract.tesseract_cmd exists
+6. Image Conversion Fails
+If page.to_image() fails (e.g., missing Ghostscript or PIL issues), fallback OCR won’t work.
+7. OCR Gives Garbage or Incomplete Output
+Poor scan quality, skewed text, or vertical characters can cause pytesseract to extract garbage.
+Your fallback logic is good but may fail if:
+Text is cut off in the crop
+Characters are merged
+Layout is inconsistent
+8. Wrong Rotation Angle
+You rotate the page 270°—if some PDFs are already upright or rotated differently, the OCR will miss col3 entirely.
+❗Fix: Use page.rotation or a smarter angle detector
+❌ Hardcoded Exceptions (Manual Override)
+
+9. Manual Override for Pages 9 & 10 Only
+You hardcoded if page_index + 1 == 9, etc.
+❗Risk: If a different PDF has similar issues on page 5 or 6, these will be missed.
+❌ Code & Runtime Issues
+
+10. File Save Errors
+If Excel or log files can’t be written (e.g., permissions, file in use), it’ll crash.
+❗Fix: Add try-except around file save blocks.
+11. Non-ASCII Filenames
+If a PDF has special characters in the filename (e.g., Hindi characters), Excel or log saving might fail on some systems.
+❌ Logic Fallacies
+
+12. OCR Fallback Assumes Only One Match
+You take the first match from OCR, but what if there are multiple similar patterns on the page? You might get the wrong one.
+❌ Performance & Scalability
+
+13. Large PDFs May Take Too Long
+Time.sleep(1) + high-resolution image conversion can make large PDFs very slow.
